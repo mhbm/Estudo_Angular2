@@ -1,6 +1,25 @@
-<div>
-    Student : {{student.name}}
-    <div *ngIf = "student.isJedi">
-        Jedi Temple: {{student.temple}}
+<div *ngIf = "student">
+    Student : <a href="#" (click)="clicked()">{{student?.name}}</a>
+    <div *ngIf = "student?.isJedi">
+        Jedi Temple: {{student?.temple}} <button (click)="description.focus()">Focus!</button>
+        <textarea #description></textarea>
     </div>
 </div>
+<p *ngIf="!student">
+    Sem dados para exibir
+</p>
+
+<!--
+<p>Usando ngSwitch</p>
+<div [ngSwitch] = "student">
+    <p *ngSwitchCase="false">
+            Sem dados para exibir
+    </p>
+    <div *ngSwitchDefault>
+            Student : {{student?.name}}
+            <div *ngIf = "student?.isJedi">
+                Jedi Temple: {{student?.temple}}
+            </div>
+    </div>
+</div>
+-->
